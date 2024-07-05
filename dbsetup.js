@@ -57,7 +57,7 @@ const Airport = sequelize.define("Airport", {
 City.belongsTo(Country, { foreignKey: "county_id" });
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("Database & tables created!");
   })
