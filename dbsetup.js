@@ -2,7 +2,6 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = new Sequelize("database", "user", "password", {
   dialect: "sqlite",
-  host: "localhost",
   storage: "database.sqlite",
   logging: false,
 });
@@ -58,7 +57,7 @@ const Airport = sequelize.define("Airport", {
 City.belongsTo(Country, { foreignKey: "county_id" });
 
 sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("Database & tables created!");
   })

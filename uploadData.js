@@ -19,6 +19,8 @@ async function insertDataFromSpreadsheet(filePath) {
     console.log("Data inserted successfully!");
   } catch (error) {
     console.error("Error inserting data:", error);
+  } finally {
+    await sequelize.close();
   }
 }
 
